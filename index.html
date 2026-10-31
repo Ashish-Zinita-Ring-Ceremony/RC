@@ -123,7 +123,7 @@ music.addEventListener('error',()=>{musicToggle.title='Audio could not load. Che
   });
   const observer=new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
-      if(entry.isIntersecting){entry.target.classList.add('revealed');observer.unobserve(entry.target);}
+      entry.target.classList.toggle('revealed',entry.isIntersecting);
     });
   },{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
   items.forEach(el=>observer.observe(el));
